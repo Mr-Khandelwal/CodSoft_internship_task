@@ -1,8 +1,8 @@
-                                         //                    #Task 2
-                                         /*Develop a calculator program that performs basic arithmetic
-                                        operations such as addition, subtraction, multiplication, and
-                                        division. Allow the user to input two numbers and choose an
-                                         operation to perform.*/
+//                    #Task 2
+/*Develop a calculator program that performs basic arithmetic
+operations such as addition, subtraction, multiplication, and
+division. Allow the user to input two numbers and choose an
+operation to perform.*/
 
 #include<iostream>
 using namespace std;
@@ -28,12 +28,14 @@ int main()
 {
     double x,y;
     char choice;
-    cin>>x;
-    cin>>choice;
-
+    char a;
     double result;
-    switch(choice)
+    cin>>x;
+    do
     {
+        cin>>choice;
+        switch(choice)
+        {
         case '+':
             cin>>y;
             result = addition(x,y);
@@ -49,7 +51,7 @@ int main()
 
         case '/':
             cin>>y;
-             if(y==0)
+            if(y==0)
             {
                 cout<<x<<" can't divide by 0 ";
             }
@@ -65,6 +67,10 @@ int main()
 
         default:
             cout<<"Invalid opertaor";
-    }
+        }
+        cout<<"\nDo you want to continue (Y/N) : ";
+        cin>>a;
+        x=result;
+    }while(a=='Y' || a=='y');
     return 0;
 }
